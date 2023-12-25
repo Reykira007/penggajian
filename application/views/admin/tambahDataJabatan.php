@@ -6,7 +6,7 @@
         </h1>
     </div>
 
-    <div class="card" style="widh: 60%; margin-bottom: 100px">
+    <div class="card" style="width: 60%; margin-bottom: 100px">
         <div class="card-body">
 
             <form method="POST" action="<?php echo base_url('admin/dataJabatan/tambahDataAksi') ?>">

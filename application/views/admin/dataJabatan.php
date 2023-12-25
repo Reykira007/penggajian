@@ -6,10 +6,12 @@
         </h1>
     </div>
 
-    <a class="btn btn-sm btn-success mb-3" href="<?php echo base_url('admin/dataJabatan/tambahData/') ?>"><i
-            class="fas fa-plus"></i>Tambah Data</a>
+    <a class="mb-2 mt-2 btn btn-sm btn-success" href="<?php echo base_url('admin/dataJabatan/tambahData/') ?>"><i
+            class="fas fa-plus"></i>Tambah Data
+    </a>
 
     <?php echo $this->session->flashdata('pesan') ?>
+
     <table class="table table-bordered table-striped mt-2">
         <tr>
             <th class="text-center">No</th>
