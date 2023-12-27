@@ -6,6 +6,21 @@
         </h1>
     </div>
 
+    <?php
+    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+        $bulan = $_GET['bulan'];
+        $tahun = $_GET['tahun'];
+        $bulantahun = $bulan . $tahun;
+    } else {
+        $bulan = date('m');
+        $tahun = date('Y');
+        $bulantahun = $bulan . $tahun;
+    }
+
+    // Mengambil tahun saat ini
+    $tahun_sekarang = date('Y');
+    ?>
+
     <div class="card mb-3">
         <div class="card-header bg-primary text-white">
             Filter Data Absensi Pegawai
@@ -34,33 +49,21 @@
                     <label for="staticEmail2" class="">Tahun : </label>
                     <select class="form-control ml-2" name="tahun">
                         <option value="">--Pilih Tahun--</option>
-                        <?php $tahun = date('Y');
-                        for ($i = 2021; $i < $tahun + 3; $i++) { ?>
+                        <?php for ($i = $tahun_sekarang - 4; $i <= $tahun_sekarang + 0; $i++) { ?>
                             <option value="<?php echo $i ?>">
                                 <?php echo $i ?>
                             </option>
                         <?php } ?>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i>Tampilkan
-                    Data</button>
-                <a href="<?php echo base_url('admin/dataAbsensi/inputAbsensi') ?>" class="btn btn-success mb-2 ml-2"><i
-                        class="fas fa-plus">Input Kehadiran</i></a>
+                <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i> Tampilkan
+                    Data </button>
+
+                <a href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
+                    class="btn btn-success mb-2 ml-2"><i class="fas fa-plus"> Input Kehadiran </i></a>
             </form>
         </div>
     </div>
-
-    <?php
-    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
-        $bulan = $_GET['bulan'];
-        $tahun = $_GET['tahun'];
-        $bulantahun = $bulan . $tahun;
-    } else {
-        $bulan = date('m');
-        $tahun = date('Y');
-        $bulantahun = $bulan . $tahun;
-    }
-    ?>
 
     <div class="alert alert-info">Menampilkan Data Kehadiran Pegawai Bulan: <span class="font-weight-bold">
             <?php echo $bulan ?>
@@ -68,11 +71,9 @@
             <?php echo $tahun ?>
         </span>
     </div>
-
     <?php
     $jml_data = count($absensi);
     if ($jml_data > 0) { ?>
-
         <table class="table table-bordered table-striped">
             <tr>
                 <td class="text-center">No</td>
@@ -116,7 +117,15 @@
             <?php endforeach; ?>
         </table>
     <?php } else { ?>
-        <span class="badge badge-danger"><i class="fas fa-info-circle"></i> Data masih kosong. Silakan masukkan data
-            kehadiran untuk bulan dan tahun yang Anda pilih.</span>
+        <div class="alert alert-danger text-center"><i class="fas fa-info-circle"></i> Data masih kosong. Silahkan <a
+                href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
+                class="text-blue">input kehadiran</a> untuk
+            bulan:<span class="font-weight-bold">
+                <?php echo $bulan ?>
+            </span> tahun:
+            <span class="font-weight-bold">
+                <?php echo $tahun ?>
+            </span>
+        </div>
     <?php } ?>
 </div>

@@ -84,10 +84,25 @@ class DataAbsensi extends CI_Controller
             INNER JOIN data_jabatan ON data_pegawai.jabatan=data_jabatan.nama_jabatan
             WHERE NOT EXISTS (SELECT * FROM data_kehadiran WHERE bulan='$bulantahun' AND data_pegawai.nik=data_kehadiran.nik)
             ORDER BY data_pegawai.nama_pegawai ASC")->result();
+
+        // Cek apakah data absensi sudah ada untuk bulan dan tahun yang dipilih
+        $data['data_absensi_ada'] = $this->checkDataAbsensi($bulantahun);
+
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/formInputAbsensi', $data);
         $this->load->view('templates_admin/footer');
+    }
+
+    // Fungsi untuk memeriksa keberadaan data absensi
+    private function checkDataAbsensi($bulantahun)
+    {
+        $query = $this->db->query("SELECT * FROM data_kehadiran WHERE bulan='$bulantahun'");
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

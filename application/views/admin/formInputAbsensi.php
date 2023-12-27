@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">
             <?php echo $title ?>
@@ -35,14 +34,14 @@
                     <select class="form-control ml-2" name="tahun">
                         <option value="">--Pilih Tahun--</option>
                         <?php $tahun = date('Y');
-                        for ($i = 2021; $i < $tahun + 3; $i++) { ?>
+                        for ($i = 2019; $i < $tahun + 1; $i++) { ?>
                             <option value="<?php echo $i ?>">
                                 <?php echo $i ?>
                             </option>
                         <?php } ?>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i>Generate</button>
+                <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i> Generate </button>
             </form>
         </div>
     </div>
@@ -59,59 +58,94 @@
     }
     ?>
 
-    <div class="alert alert-info">Menampilkan Data Kehadiran Pegawai Bulan: <span class="font-weight-bold">
-            <?php echo $bulan ?>
-        </span> Tahun: <span class="font-weight-bold">
-            <?php echo $tahun ?>
-        </span>
-    </div>
+    <?php if (!$data_absensi_ada) { ?>
+        <div class="alert alert-info">Input Data Kehadiran Pegawai Pada Bulan: <span class="font-weight-bold">
+                <?php echo $bulan ?>
+            </span> Tahun: <span class="font-weight-bold">
+                <?php echo $tahun ?>
+            </span>
+        </div>
 
-    <form method="POST" action="">
-        <button class="btn btn-success mb-3" type="submit" name="submit" value="submit">SIMPAN</button>
-        <table class="table table-bordered table-striped">
-            <tr>
-                <td class="text-center">No</td>
-                <td class="text-center">NIK</td>
-                <td class="text-center">Nama Pegawai</td>
-                <td class="text-center">Jenis Kelamin</td>
-                <td class="text-center">Jabatan</td>
-                <td class="text-center" width="8%">Hadir</td>
-                <td class="text-center" width="8%">Sakit</td>
-                <td class="text-center" width="8%">Tidak Hadir</td>
-            </tr>
-
-            <?php $no = 1;
-            foreach ($input_absensi as $a): ?>
-                <tr class="text-center">
-                    <input type="hidden" name="bulan[]" class="form-control text-center" value="<?php echo $bulantahun ?>">
-                    </td>
-                    <input type="hidden" name="nik[]" class="form-control text-center" value="<?php echo $a->nik ?>">
-                    <input type="hidden" name="nama_pegawai[]" class="form-control text-center"
-                        value="<?php echo $a->nama_pegawai ?>">
-                    <input type="hidden" name="jenis_kelamin[]" class="form-control text-center"
-                        value="<?php echo $a->jenis_kelamin ?>">
-                    <input type="hidden" name="nama_jabatan[]" class="form-control text-center"
-                        value="<?php echo $a->nama_jabatan ?>">
-                    <td>
-                        <?php echo $no++ ?>
-                    </td>
-                    <td>
-                        <?php echo $a->nik ?>
-                    </td>
-                    <td>
-                        <?php echo $a->nama_pegawai ?>
-                    </td>
-                    <td>
-                        <?php echo $a->jenis_kelamin ?>
-                    </td>
-                    <td>
-                        <?php echo $a->nama_jabatan ?>
-                    </td>
-                    <td><input type="number" name="hadir[]" class="form-control text-center" value="0"></td>
-                    <td><input type="number" name="sakit[]" class="form-control text-center" value="0"></td>
-                    <td><input type="number" name="alpa[]" class="form-control text-center" value="0"></td>
+        <form method="POST" action="">
+            <button class="btn btn-success mb-3" type="submit" name="submit" value="submit">SIMPAN</button>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td class="text-center">No</td>
+                    <td class="text-center">NIK</td>
+                    <td class="text-center">Nama Pegawai</td>
+                    <td class="text-center">Jenis Kelamin</td>
+                    <td class="text-center">Jabatan</td>
+                    <td class="text-center" width="8%">Hadir</td>
+                    <td class="text-center" width="8%">Sakit</td>
+                    <td class="text-center" width="8%">Tidak Hadir</td>
                 </tr>
-            <?php endforeach; ?>
-        </table><br><br><br><br>
-    </form>
+
+                <?php $no = 1;
+                foreach ($input_absensi as $a): ?>
+                    <tr class="text-center">
+                        <input type="hidden" name="bulan[]" class="form-control text-center" value="<?php echo $bulantahun ?>">
+                        <input type="hidden" name="nik[]" class="form-control text-center" value="<?php echo $a->nik ?>">
+                        <input type="hidden" name="nama_pegawai[]" class="form-control text-center"
+                            value="<?php echo $a->nama_pegawai ?>">
+                        <input type="hidden" name="jenis_kelamin[]" class="form-control text-center"
+                            value="<?php echo $a->jenis_kelamin ?>">
+                        <input type="hidden" name="nama_jabatan[]" class="form-control text-center"
+                            value="<?php echo $a->nama_jabatan ?>">
+                        <td>
+                            <?php echo $no++ ?>
+                        </td>
+                        <td>
+                            <?php echo $a->nik ?>
+                        </td>
+                        <td>
+                            <?php echo $a->nama_pegawai ?>
+                        </td>
+                        <td>
+                            <?php echo $a->jenis_kelamin ?>
+                        </td>
+                        <td>
+                            <?php echo $a->nama_jabatan ?>
+                        </td>
+                        <td><input type="number" name="hadir[]" class="form-control text-center" value="0"></td>
+                        <td><input type="number" name="sakit[]" class="form-control text-center" value="0"></td>
+                        <td><input type="number" name="alpa[]" class="form-control text-center" value="0"></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </form>
+    <?php } else { ?>
+        <div class="alert alert-warning text-center"><i class="fas fa-info-circle"></i> Data absensi untuk bulan:
+            <span class="font-weight-bold">
+                <?php echo $bulan ?>
+            </span> tahun: <span class="font-weight-bold">
+                <?php echo $tahun ?>
+            </span> sudah ada. Silakan pilih bulan dan tahun yang lain.
+        </div>
+    <?php } ?>
+
+    <script>
+        // Mendapatkan nilai bulan yang dipilih
+        var bulan = document.querySelector( 'select[name="bulan"]' ).value;
+
+        // Mendapatkan elemen tombol 'SIMPAN'
+        var tombolSimpan = document.querySelector( 'button[name="submit"]' );
+
+        // Menampilkan tombol 'SIMPAN' jika data absensi belum ada
+        if ( !<?php echo $data_absensi_ada ? 'true' : 'false' ?> )
+        {
+            tombolSimpan.classList.remove( 'hide' );
+        }
+
+        // Menampilkan tombol 'SIMPAN' jika bulan dan tahun dipilih memiliki data absensi
+        if ( bulan !== '' && !<?php echo $data_absensi_ada ? 'true' : 'false' ?> )
+        {
+            tombolSimpan.classList.remove( 'hide' );
+        }
+    </script>
+
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </div>
