@@ -6,10 +6,12 @@
         </h1>
     </div>
 
-    <a class="mb-2 mt-2 btn btn-sm btn-success" href="<?php echo base_url('admin/dataPegawai/tambahData') ?>"><i
-            class="fas fa-plus"></i>Tambah
-        Pegawai
-    </a>
+    <div>
+        <a class="mb-2 mt-2 btn btn-sm btn-success d-inline-block"
+            href="<?php echo base_url('admin/dataPegawai/tambahData') ?>">
+            <i class="fas fa-plus"></i> Tambah Pegawai
+        </a>
+    </div>
 
     <?php echo $this->session->flashdata('pesan') ?>
 
@@ -66,4 +68,10 @@
         </tr>
         <?php endforeach; ?>
     </table>
+
+    <div class="row">
+        <div class="col">
+            <?php echo $pagination; ?>
+        </div>
+    </div>
 </div>

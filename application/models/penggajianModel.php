@@ -7,7 +7,11 @@ class PenggajianModel extends CI_Model
     {
         return $this->db->get($table);
     }
-
+    public function get_data_pagination($limit, $start)
+    {
+        $query = $this->db->get('data_pegawai', $limit, $start);
+        return $query;
+    }
     public function insert_data($data, $table)
     {
         $this->db->insert($table, $data);

@@ -6,8 +6,10 @@
         </h1>
     </div>
 
-    <a class="btn btn-sm btn-success mb-2 mt-2" href="<?php echo base_url('admin/potonganGaji/tambahData') ?>"><i
-            class="fas fa-plus"></i>Tambah Data</a>
+    <div>
+        <a class="btn btn-sm btn-success mb-2 mt-2" href="<?php echo base_url('admin/potonganGaji/tambahData') ?>"><i
+                class="fas fa-plus"></i>Tambah Data</a>
+    </div>
 
     <?php echo $this->session->flashdata("pesan"); ?>
 

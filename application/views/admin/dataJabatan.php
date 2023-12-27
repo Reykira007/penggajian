@@ -6,9 +6,11 @@
         </h1>
     </div>
 
-    <a class="mb-2 mt-2 btn btn-sm btn-success" href="<?php echo base_url('admin/dataJabatan/tambahData/') ?>"><i
-            class="fas fa-plus"></i>Tambah Data
-    </a>
+    <div>
+        <a class="mb-2 mt-2 btn btn-sm btn-success" href="<?php echo base_url('admin/dataJabatan/tambahData/') ?>"><i
+                class="fas fa-plus"></i> Tambah Data
+        </a>
+    </div>
 
     <?php echo $this->session->flashdata('pesan') ?>
 
@@ -25,40 +27,40 @@
 
         <?php $no = 1;
         foreach ($jabatan as $j): ?>
-        <tr class="text-center">
-            <td>
-                <?php echo $no++ ?>
-            </td>
-            <td>
-                <?php echo $j->nama_jabatan ?>
-            </td>
-            <td>
-                Rp.
-                <?php echo number_format($j->gaji_pokok, 0, ',', '.') ?>
-            </td>
-            <td>
-                Rp.
-                <?php echo number_format($j->tj_transport, 0, ',', '.') ?>
-            </td>
-            <td>
-                Rp.
-                <?php echo number_format($j->uang_makan, 0, ',', '.') ?>
-            </td>
-            <td>
-                Rp.
-                <?php echo number_format($j->gaji_pokok + $j->tj_transport + $j->uang_makan, 0, ',', '.') ?>
-            </td>
-            <td>
-                <center>
-                    <a class="btn btn-sm btn-primary"
-                        href="<?php echo base_url('admin/dataJabatan/updateData/' . $j->id_jabatan) ?>"><i
-                            class="fas fa-edit"></i></a>
-                    <a onclick="return confirm('Yakin Hapus')" class="btn btn-sm btn-danger"
-                        href="<?php echo base_url('admin/dataJabatan/deleteData/' . $j->id_jabatan) ?>"><i
-                            class="fas fa-trash"></i></a>
-                </center>
-            </td>
-        </tr>
+            <tr class="text-center">
+                <td>
+                    <?php echo $no++ ?>
+                </td>
+                <td>
+                    <?php echo $j->nama_jabatan ?>
+                </td>
+                <td>
+                    Rp.
+                    <?php echo number_format($j->gaji_pokok, 0, ',', '.') ?>
+                </td>
+                <td>
+                    Rp.
+                    <?php echo number_format($j->tj_transport, 0, ',', '.') ?>
+                </td>
+                <td>
+                    Rp.
+                    <?php echo number_format($j->uang_makan, 0, ',', '.') ?>
+                </td>
+                <td>
+                    Rp.
+                    <?php echo number_format($j->gaji_pokok + $j->tj_transport + $j->uang_makan, 0, ',', '.') ?>
+                </td>
+                <td>
+                    <center>
+                        <a class="btn btn-sm btn-primary"
+                            href="<?php echo base_url('admin/dataJabatan/updateData/' . $j->id_jabatan) ?>"><i
+                                class="fas fa-edit"></i></a>
+                        <a onclick="return confirm('Yakin Hapus')" class="btn btn-sm btn-danger"
+                            href="<?php echo base_url('admin/dataJabatan/deleteData/' . $j->id_jabatan) ?>"><i
+                                class="fas fa-trash"></i></a>
+                    </center>
+                </td>
+            </tr>
         <?php endforeach; ?>
     </table>
 </div>

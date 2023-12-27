@@ -23,4 +23,21 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url() ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <style>
+        .container-fluid {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            padding-bottom: 100px;
+            /* Ubah angka sesuai dengan kebutuhan jarak */
+        }
+
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+        }
+    </style>
 </head>

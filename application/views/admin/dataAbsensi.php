@@ -117,7 +117,7 @@
                     </td>
                 </tr>
             <?php endforeach; ?>
-        </table>
+        </table><br><br><br><br><br><br><br><br><br><br>
     <?php } else { ?>
         <div class="alert alert-danger text-center"><i class="fas fa-info-circle"></i> Data masih kosong. Silahkan <a
                 href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
