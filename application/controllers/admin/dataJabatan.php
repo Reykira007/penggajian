@@ -64,7 +64,7 @@ class DataJabatan extends CI_Controller
     {
         $where = array('id_jabatan' => $id);
         $data['jabatan'] = $this->db->query("SELECT * FROM data_jabatan WHERE id_jabatan='$id'")->result();
-        $data['title'] = 'Tambah Data Jabatan';
+        $data['title'] = 'Update Data Jabatan';
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/updateDataJabatan', $data);

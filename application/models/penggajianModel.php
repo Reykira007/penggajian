@@ -35,9 +35,12 @@ class PenggajianModel extends CI_Model
         $this->db->delete($table);
     }
 
-    public function select()
+    public function insert_batch($table = null, $data = array())
     {
-        // Implementasi fungsi select jika diperlukan
+        $jumlah = count($data);
+        if ($jumlah > 0) {
+            $this->db->insert_batch($table, $data);
+        }
     }
 }
 

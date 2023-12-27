@@ -28,42 +28,42 @@
 
         <?php $no = 1;
         foreach ($pegawai as $p): ?>
-            <tr>
-                <td>
-                    <?php echo $no++ ?>
-                </td>
-                <td>
-                    <?php echo $p->nik ?>
-                </td>
-                <td>
-                    <?php echo $p->nama_pegawai ?>
-                </td>
-                <td>
-                    <?php echo $p->jenis_kelamin ?>
-                </td>
-                <td>
-                    <?php echo $p->jabatan ?>
-                </td>
-                <td>
-                    <?php echo $p->tanggal_masuk ?>
-                </td>
-                <td>
-                    <?php echo $p->status ?>
-                </td>
-                <td>
-                    <img src="<?php echo base_url() . 'assets/photo/' . $p->photo ?>" width="75px">
-                </td>
-                <td>
-                    <center>
-                        <a class="btn btn-sm btn-primary"
-                            href="<?php echo base_url('admin/dataPegawai/updateData/' . $p->id_pegawai) ?>"><i
-                                class="fas fa-edit"></i></a>
-                        <a onclick="return confirm('Yakin Hapus')" class="btn btn-sm btn-danger"
-                            href="<?php echo base_url('admin/dataPegawai/deleteData/' . $p->id_pegawai) ?>"><i
-                                class="fas fa-trash"></i></a>
-                    </center>
-                </td>
-            </tr>
+        <tr class="text-center">
+            <td>
+                <?php echo $no++ ?>
+            </td>
+            <td>
+                <?php echo $p->nik ?>
+            </td>
+            <td>
+                <?php echo $p->nama_pegawai ?>
+            </td>
+            <td>
+                <?php echo $p->jenis_kelamin ?>
+            </td>
+            <td>
+                <?php echo $p->jabatan ?>
+            </td>
+            <td>
+                <?php echo $p->tanggal_masuk ?>
+            </td>
+            <td>
+                <?php echo $p->status ?>
+            </td>
+            <td>
+                <img src="<?php echo base_url() . 'assets/photo/' . $p->photo ?>" width="75px">
+            </td>
+            <td>
+                <center>
+                    <a class="btn btn-sm btn-primary"
+                        href="<?php echo base_url('admin/dataPegawai/updateData/' . $p->id_pegawai) ?>"><i
+                            class="fas fa-edit"></i></a>
+                    <a onclick="return confirm('Yakin Hapus')" class="btn btn-sm btn-danger"
+                        href="<?php echo base_url('admin/dataPegawai/deleteData/' . $p->id_pegawai) ?>"><i
+                            class="fas fa-trash"></i></a>
+                </center>
+            </td>
+        </tr>
         <?php endforeach; ?>
     </table>
 </div>
