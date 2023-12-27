@@ -6,6 +6,8 @@
         </h1>
     </div>
 
+    <?php echo $this->session->flashdata('pesan') ?>
+
     <?php
     if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
         $bulan = $_GET['bulan'];

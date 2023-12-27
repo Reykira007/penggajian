@@ -65,7 +65,8 @@ class DataAbsensi extends CI_Controller
             <span aria-hidden="true">&times;</span>
             </button>
             </div>');
-            redirect('admin/dataAbsensi');
+            // Mengarahkan kembali ke halaman dataAbsensi dengan bulan dan tahun yang telah diinput
+            redirect('admin/dataAbsensi?bulan=' . $bulan . '&tahun=' . $tahun);
         }
 
         $data['title'] = "Form Input Absensi";
