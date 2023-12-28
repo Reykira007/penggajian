@@ -30,9 +30,9 @@ class DataPegawai extends CI_Controller
         $config['num_tag_close'] = '</span></li>';
         $config['cur_tag_open'] = '<li class="page-item active"><span class="page-link">';
         $config['cur_tag_close'] = '</span></li>';
-        $config['next_tag_open'] = '<li class="page-item active"><span class="page-link">';
+        $config['next_tag_open'] = '<li class="page-item "><span class="page-link">';
         $config['next_tagl_close'] = '<span aria-hidden="true">&requo</span></span></li>';
-        $config['prev_tag_open'] = '<li class="page-item active"><span class="page-link">';
+        $config['prev_tag_open'] = '<li class="page-item "><span class="page-link">';
         $config['prev_tagl_close'] = '</span>Next</li>';
         $config['first_tag_open'] = '<li class="page-item active"><span class="page-link">';
         $config['first_tagl_close'] = '</span></li>';
@@ -44,7 +44,7 @@ class DataPegawai extends CI_Controller
 
 
         $data['title'] = "Data Pegawai";
-        $data['pegawai'] = $this->penggajianModel->get_data_pagination($config["per_page"], $data['page'])->result();
+        $data['pegawai'] = $this->penggajianModel->get_data_pagination(('data_pegawai'), $config["per_page"], $data['page'])->result();
         $data['pagination'] = $this->pagination->create_links();
 
         $this->load->view('templates_admin/header', $data);
