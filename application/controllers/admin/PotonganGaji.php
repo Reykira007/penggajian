@@ -15,7 +15,7 @@ class PotonganGaji extends CI_Controller
         $data['cut_gaji'] = $this->penggajianModel->get_data('potongan_gaji')->result();
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/potonganGaji', $data);
+        $this->load->view('admin/potongan_gaji/potonganGaji', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -24,7 +24,7 @@ class PotonganGaji extends CI_Controller
         $data['title'] = 'Tambah Potongan Gaji';
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/formPotonganGaji', $data);
+        $this->load->view('admin/potongan_gaji/formPotonganGaji', $data);
         $this->load->view('templates_admin/footer');
     }
     public function tambahDataAksi()
@@ -50,7 +50,7 @@ class PotonganGaji extends CI_Controller
             <span aria-hidden="true">&times;</span>
             </button>
             </div>');
-            redirect('admin/potonganGaji');
+            redirect('admin/potongan_gaji/potonganGaji');
         }
     }
 
@@ -61,7 +61,7 @@ class PotonganGaji extends CI_Controller
         $data['title'] = 'Update Potongan Gaji';
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/updatePotonganGaji', $data);
+        $this->load->view('admin/potongan_gaji/updatePotonganGaji', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -115,7 +115,7 @@ class PotonganGaji extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-        redirect('admin/potonganGaji');
+        redirect('admin/potongan_gaji/potonganGaji');
     }
 }
 

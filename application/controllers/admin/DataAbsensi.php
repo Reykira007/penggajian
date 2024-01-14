@@ -29,11 +29,12 @@ class DataAbsensi extends CI_Controller
             INNER JOIN data_pegawai ON data_kehadiran.nik=data_pegawai.nik 
             INNER JOIN data_jabatan ON data_pegawai.jabatan=data_jabatan.nama_jabatan 
             WHERE data_kehadiran.bulan='$bulantahun'
-            ORDER BY data_pegawai.nama_pegawai ASC")->result();
+            ORDER BY data_pegawai.nama_pegawai ASC"
+        )->result();
 
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/dataAbsensi', $data);
+        $this->load->view('admin/absensi/dataAbsensi', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -84,14 +85,15 @@ class DataAbsensi extends CI_Controller
             FROM data_pegawai 
             INNER JOIN data_jabatan ON data_pegawai.jabatan=data_jabatan.nama_jabatan
             WHERE NOT EXISTS (SELECT * FROM data_kehadiran WHERE bulan='$bulantahun' AND data_pegawai.nik=data_kehadiran.nik)
-            ORDER BY data_pegawai.nama_pegawai ASC")->result();
+            ORDER BY data_pegawai.nama_pegawai ASC"
+        )->result();
 
         // Cek apakah data absensi sudah ada untuk bulan dan tahun yang dipilih
         $data['data_absensi_ada'] = $this->checkDataAbsensi($bulantahun);
 
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/formInputAbsensi', $data);
+        $this->load->view('admin/absensi/formInputAbsensi', $data);
         $this->load->view('templates_admin/footer');
     }
 

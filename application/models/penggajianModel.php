@@ -46,6 +46,18 @@ class PenggajianModel extends CI_Model
             $this->db->insert_batch($table, $data);
         }
     }
+
+    // Fungsi untuk mendapatkan semua data potongan gaji
+    public function getAllPotonganGaji()
+    {
+        return $this->db->get('potongan_gaji')->result();
+    }
+
+    // Fungsi untuk mendapatkan data potongan gaji berdasarkan jenis
+    public function getPotonganGajiByJenis($jenis)
+    {
+        return $this->db->get_where('potongan_gaji', array('potongan' => $jenis))->row();
+    }
 }
 
 /* End of file PenggajianModel_model.php and path \application\models\models\PenggajianModel_model.php */

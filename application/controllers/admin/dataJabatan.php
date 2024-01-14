@@ -15,7 +15,7 @@ class DataJabatan extends CI_Controller
         $data['jabatan'] = $this->penggajianModel->get_data('data_jabatan')->result();
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/dataJabatan', $data);
+        $this->load->view('admin/jabatan/dataJabatan', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -24,7 +24,7 @@ class DataJabatan extends CI_Controller
         $data['title'] = 'Tambah Data Jabatan';
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/tambahDataJabatan', $data);
+        $this->load->view('admin/jabatan/tambahDataJabatan', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -67,7 +67,7 @@ class DataJabatan extends CI_Controller
         $data['title'] = 'Update Data Jabatan';
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/updateDataJabatan', $data);
+        $this->load->view('admin/jabatan/updateDataJabatan', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -128,7 +128,7 @@ class DataJabatan extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-        redirect('admin/dataJabatan');
+        redirect('admin/jabatan/dataJabatan');
     }
 }
 

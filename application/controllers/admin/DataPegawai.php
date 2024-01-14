@@ -15,7 +15,7 @@ class DataPegawai extends CI_Controller
     {
         $config['base_url'] = site_url('admin/dataPegawai/index');
         $config['total_rows'] = $this->db->count_all('data_pegawai');
-        $config['per_page'] = 3;
+        $config['per_page'] = 5;
         $config['uri_segment'] = 4;
         $choice = $config['total_rows'] / $config['per_page'];
         $config['num_links'] = floor($choice);
@@ -49,7 +49,7 @@ class DataPegawai extends CI_Controller
 
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/dataPegawai', $data);
+        $this->load->view('admin/pegawai/dataPegawai', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -59,7 +59,7 @@ class DataPegawai extends CI_Controller
         $data['jabatan'] = $this->penggajianModel->get_data('data_jabatan')->result();
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/formTambahPegawai', $data);
+        $this->load->view('admin/pegawai/formTambahPegawai', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -108,7 +108,7 @@ class DataPegawai extends CI_Controller
             <span aria-hidden="true">&times;</span>
             </button>
             </div>');
-            redirect('admin/dataPegawai');
+            redirect('admin/pegawai/dataPegawai');
         }
     }
 
@@ -120,7 +120,7 @@ class DataPegawai extends CI_Controller
         $data['pegawai'] = $this->db->query("SELECT * FROM data_pegawai WHERE id_pegawai = '$id'")->result();
         $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/formUpdatePegawai', $data);
+        $this->load->view('admin/pegawai/formUpdatePegawai', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -188,7 +188,7 @@ class DataPegawai extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-            redirect('admin/dataPegawai');
+            redirect('admin/pegawai/dataPegawai');
         }
     }
 
@@ -214,7 +214,7 @@ class DataPegawai extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-        redirect('admin/dataPegawai');
+        redirect('admin/pegawai/dataPegawai');
     }
 }
 

@@ -61,8 +61,7 @@
                 <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i> Tampilkan
                     Data </button>
 
-                <a href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
-                    class="btn btn-success mb-2 ml-2"><i class="fas fa-plus"> Input Kehadiran </i></a>
+                <a href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>" class="btn btn-success mb-2 ml-2"><i class="fas fa-plus"> Input Kehadiran </i></a>
             </form>
         </div>
     </div>
@@ -89,7 +88,7 @@
             </tr>
 
             <?php $no = 1;
-            foreach ($absensi as $a): ?>
+            foreach ($absensi as $a) : ?>
                 <tr class="text-center">
                     <td>
                         <?php echo $no++ ?>
@@ -119,9 +118,7 @@
             <?php endforeach; ?>
         </table><br><br><br><br><br><br><br><br><br><br>
     <?php } else { ?>
-        <div class="alert alert-danger text-center"><i class="fas fa-info-circle"></i> Data masih kosong. Silahkan <a
-                href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
-                class="text-blue">input kehadiran</a> untuk
+        <div class="alert alert-danger text-center"><i class="fas fa-info-circle"></i> Data masih kosong. Silahkan <a href="<?php echo base_url('admin/dataAbsensi/inputAbsensi?bulan=' . $bulan . '&tahun=' . $tahun) ?>" class="text-blue">input kehadiran</a> untuk
             bulan:<span class="font-weight-bold">
                 <?php echo $bulan ?>
             </span> tahun:
