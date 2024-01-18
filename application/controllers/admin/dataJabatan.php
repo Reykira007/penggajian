@@ -128,7 +128,7 @@ class DataJabatan extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-        redirect('admin/jabatan/dataJabatan');
+        redirect('admin/dataJabatan');
     }
 }
 

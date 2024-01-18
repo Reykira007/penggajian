@@ -50,7 +50,7 @@ class PotonganGaji extends CI_Controller
             <span aria-hidden="true">&times;</span>
             </button>
             </div>');
-            redirect('admin/potongan_gaji/potonganGaji');
+            redirect('admin/potonganGaji');
         }
     }
 
@@ -115,7 +115,7 @@ class PotonganGaji extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-        redirect('admin/potongan_gaji/potonganGaji');
+        redirect('admin/potonganGaji');
     }
 }
 

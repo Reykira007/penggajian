@@ -108,7 +108,7 @@ class DataPegawai extends CI_Controller
             <span aria-hidden="true">&times;</span>
             </button>
             </div>');
-            redirect('admin/pegawai/dataPegawai');
+            redirect('admin/dataPegawai');
         }
     }
 
@@ -188,7 +188,7 @@ class DataPegawai extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-            redirect('admin/pegawai/dataPegawai');
+            redirect('admin/dataPegawai');
         }
     }
 
@@ -214,7 +214,7 @@ class DataPegawai extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button>
         </div>');
-        redirect('admin/pegawai/dataPegawai');
+        redirect('admin/dataPegawai');
     }
 }
 
