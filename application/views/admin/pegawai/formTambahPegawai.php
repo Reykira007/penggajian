@@ -10,8 +10,7 @@
 
         <div class="card-body">
 
-            <form method="POST" action="<?php echo base_url('admin/dataPegawai/tambahDataAksi') ?>"
-                enctype="multipart/form-data">
+            <form method="POST" action="<?php echo base_url('admin/dataPegawai/tambahDataAksi') ?>" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label>NIK</label>
@@ -22,6 +21,16 @@
                     <label>Nama Pegawai</label>
                     <input type="text" name="nama_pegawai" class="form-control">
                     <?php echo form_error('nama_pegawai', '<div class="text-small text-danger"></div>') ?>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control">
+                    <?php echo form_error('username', '<div class="text-small text-danger"></div>') ?>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control">
+                    <?php echo form_error('password', '<div class="text-small text-danger"></div>') ?>
                 </div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
@@ -36,10 +45,10 @@
                     <label>Jabatan</label>
                     <select name="jabatan" class="form-control">
                         <option value="">--Pilih Jabatan--</option>
-                        <?php foreach ($jabatan as $j): ?>
-                        <option value="<?= $j->nama_jabatan ?>">
-                            <?= $j->nama_jabatan ?>
-                        </option>
+                        <?php foreach ($jabatan as $j) : ?>
+                            <option value="<?= $j->nama_jabatan ?>">
+                                <?= $j->nama_jabatan ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                     <?php echo form_error('jabatan', '<div class="text-small text-danger"></div>') ?>
@@ -61,6 +70,15 @@
                 <div class="form-group">
                     <label>Photo</label>
                     <input type="file" name="photo" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Hak Akses</label>
+                    <select name="hak_akses" class="form-control">
+                        <option value="">--Pilih Hak Akses--</option>
+                        <option value="1">Admin</option>
+                        <option value="2">Pegawai</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Simpan</button>
