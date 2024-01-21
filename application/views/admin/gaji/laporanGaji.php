@@ -2,8 +2,14 @@
 <div class="container-fluid">
     <div class="card mx-auto" style="width: 35%">
         <div class="card-header bg-primary text-white text-center">
-            FIlter Laporan Gaji Pegawai
+            Filter Laporan Gaji Pegawai
         </div>
+
+        <?php if ($this->session->flashdata('error')) : ?>
+            <div class="alert alert-danger mt-3">
+                <?php echo $this->session->flashdata('error'); ?>
+            </div>
+        <?php endif; ?>
 
         <?php
         if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
@@ -20,14 +26,13 @@
         $tahun_sekarang = date('Y');
         ?>
 
-
         <form method="POST" action="<?php echo base_url('admin/laporanGaji/cetakLaporanGaji') ?>">
             <div class="card-body">
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Bulan</label>
                     <div class="col-sm-9">
                         <select class="form-control" name="bulan">
-                            <option value=""> Pilih Bulan </option>
+                            <option value="">--Pilih Bulan--</option>
                             <option value="01">Januari</option>
                             <option value="02">Februari</option>
                             <option value="03">Maret</option>
@@ -48,7 +53,7 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Tahun</label>
                     <div class="col-sm-9">
                         <select class="form-control" name="tahun">
-                            <option value=""> Pilih Tahun </option>
+                            <option value="">--Pilih Tahun--</option>
                             <?php for ($i = $tahun_sekarang - 4; $i <= $tahun_sekarang + 0; $i++) { ?>
                                 <option value="<?php echo $i ?>">
                                     <?php echo $i ?>
@@ -62,3 +67,4 @@
         </form>
     </div>
     <!-- /.container-fluid -->
+</div>
